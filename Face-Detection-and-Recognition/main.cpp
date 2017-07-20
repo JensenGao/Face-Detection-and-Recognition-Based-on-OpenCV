@@ -58,11 +58,11 @@ const double CHANGE_IN_IMAGE_FOR_COLLECTION = 0.3;      //getSimilarity返回的
 const double CHANGE_IN_SECONDS_FOR_COLLECTION = 1.0;       //间隔1s采集一次人脸图像
 
 const char *windowName = "WebcamFaceRec";   // GUI的名字
-const int BORDER = 8;  // Border between GUI elements to the edge of the image.
+const int BORDER = 8;  // GUI的边界与现实图像的间隔
 
 const bool preprocessLeftAndRightSeparately = true;   // 是否分别对左侧和右侧人脸进行处理的标志
 
-// Set to true if you want to see many windows created, showing various debug info. Set to 0 otherwise.
+//当需要创建window时，为真
 bool m_debug = false;
 
 // 系统交互式GUI的运行模式
@@ -186,7 +186,7 @@ Rect drawString(Mat img, string text, Point coord, Scalar color, float fontScale
     //获得文本边界
     Rect boundingRect = Rect(coord.x, coord.y - textSize.height, textSize.width, baseline + textSize.height);
 
-    // Draw anti-aliased text.
+    // 文本
     cv::putText(img, text, coord, fontFace, fontScale, color, thickness, CV_AA);
 
     // 返回文本边界矩形
